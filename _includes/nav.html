@@ -1,0 +1,13 @@
+<div class="nav">
+  <ul class="nav-links">
+    {% for page in site.pages %}
+      {% if page.header %}
+        <li data-nav="{{ page.header | downcase }}"><a class="navB" href="{{ page.url | prepend: site.baseurl }}">{{ page.header }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <a id="logo" href="{{ site.baseurl }}/">
+    <img src="{{ site.baseurl }}/images/logo.png" />
+    <img src="{{ site.baseurl }}/images/logo.gif" />
+  </a>
+</div>

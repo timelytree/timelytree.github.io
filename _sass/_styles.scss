@@ -1,0 +1,142 @@
+.nav {
+  @include flex-c;
+  position: fixed;
+  bottom: 0;
+  left: calc(50% - 300px);
+  width: 600px;
+  height: 150px;
+  background: white;
+  &:before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+  }
+  #logo {
+    width: 75px;
+    height: 51px;
+    position: relative;
+    &:hover {
+      img {
+        transition: 150ms;
+        &:first-child {
+          opacity: 0;
+        }
+        &:last-child {
+          opacity: 1;
+        }
+      }
+    }
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: 150ms;
+      &:first-child {
+        opacity: 1;
+      }
+      &:last-child {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.nav-links {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  li[data-nav="all posts"] { display: none; }
+}
+
+.post {
+  .post-title {
+    margin-bottom: 10px;
+  }
+  .post-date {
+    position: fixed;
+    left: calc(50% - 230px);
+    bottom: 178px;
+    transform: rotateZ(-90deg);
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    transform-origin: bottom left;
+  }
+}
+
+.post-list {
+  .post-link {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .post-date, .category-link, .category-link a {
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+  .post-title {
+    margin-bottom: 5px;
+  }
+  .categories {
+    .category-link {
+      display: inline-block;
+      background: $gray200;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      border-radius: 2px;
+      transition: 150ms;
+      &:hover {
+        transition: 150ms;
+        background: $gray300;
+      }
+      &:first-child {
+        background: white;
+        &:hover {
+          background: white;
+        }
+      }
+      a {
+        padding: 2px 5px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.page-title {
+  position: fixed;
+  left: calc(50% - 230px);
+  bottom: 148px;
+  opacity: 0;
+  transform: rotateZ(-90deg);
+  text-transform: uppercase;
+  transform-origin: bottom left;
+  transition: 150ms;
+  &.active {
+    opacity: 1;
+    @include transform(rotateZ(-90deg) translateX(30px));
+  }
+}
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

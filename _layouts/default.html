@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body>
-
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
+    <!-- /////////////////////////////////////////////////////////// wrapper -->
+    <div class="wrapper" id="{% if page.layout == 'post' %}{{ page.layout }}PAGE{% else %}{{ page.id }}{% endif %}">
+      {% include nav.html %}
+      <!-- ////////////////////////////////////////////////////// page title -->
+      <h6 class="page-title">{% if page.header %}{{ page.header }}{% elsif page.category %}{{ page.category }}{% endif %}</h6>
+      <!-- ///////////////////////////////////////////////////////// content -->
+      <div class="content">
         {{ content }}
       </div>
     </div>
-
-    {% include footer.html %}
-
   </body>
-
 </html>
