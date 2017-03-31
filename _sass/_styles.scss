@@ -5,6 +5,7 @@
   left: calc(50% - 300px);
   width: 600px;
   height: 150px;
+  z-index: 100;
   background: white;
   &:before {
     content: '';
@@ -43,13 +44,6 @@
       }
     }
   }
-}
-
-.nav-links {
-  position: absolute;
-  bottom: 25px;
-  left: 0;
-  li[data-nav="all posts"] { display: none; }
 }
 
 .post {
@@ -111,6 +105,10 @@
   .post-title {
     margin-bottom: 5px;
   }
+  .post-date, .post-title, .categories {
+    float: left;
+    clear: both;
+  }
   .categories {
     .category-link {
       display: inline-block;
@@ -139,7 +137,7 @@
   }
 }
 
-.page-title {
+.page-title, .menu-title {
   position: fixed;
   left: calc(50% - 230px);
   bottom: 148px;
@@ -149,6 +147,7 @@
   font-size: 20px;
   line-height: 22px;
   text-transform: uppercase;
+  z-index: 10;
   transition: 150ms;
   &.active {
     opacity: 1;

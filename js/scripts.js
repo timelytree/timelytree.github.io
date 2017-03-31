@@ -26,7 +26,32 @@ function pageTitleANIM() {
   delayAddC(pageTitle, 'active', 150);
 }
 
+function menuINT() {
+  var button = E('menuB'),
+      menu = E('menu'),
+      container = menu.getElementsByTagName('ul')[0],
+      header = cE('menu-title')[0],
+      stat = false;
+
+  button.onclick = function() {
+    if (!stat) {
+      addC(button, 'active');
+      addC(menu, 'active');
+      delayAddC(container, 'active', 75);
+      delayAddC(header, 'active', 150);
+      stat = true;
+    } else {
+      remC(button, 'active');
+      delayRemC(menu, 'active', 150);
+      remC(header, 'active');
+      remC(container, 'active');
+      stat = false;
+    }
+  }
+}
+
 function engage() {
+  menuINT();
   switch (p.Current) {
     case 'homePAGE': pageTitleANIM(); break;
     case 'aboutPAGE': pageTitleANIM(); break;

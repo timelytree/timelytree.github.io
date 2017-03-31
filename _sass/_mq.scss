@@ -35,16 +35,23 @@
     }
   }
 
-  .nav-links {
-    @include flex-c;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    background: white;
-    border-top: 2px solid black;
-    li {
-      display: inline-block;
+  #menu {
+    height: 100%;
+    ul {
+      width: 100%;
+      left: 0;
+      padding: 0 25px;
+    }
+  }
+
+  .menu-title {
+    @include transform(none);
+    position: relative;
+    left: 25px;
+    bottom: auto;
+    top: 25px;
+    &.active {
+      @include transform(none);
     }
   }
 
@@ -53,13 +60,13 @@
   }
 
   .page-title {
+    @include transform(none);
     position: relative;
     opacity: 1;
     left: auto;
     bottom: auto;
     padding: 0 25px;
     margin-bottom: 25px;
-    @include transform(none);
     &.active {
       @include transform(none);
     }
