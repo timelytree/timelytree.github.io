@@ -21,6 +21,18 @@
       top: auto;
       bottom: 0;
     }
+    #logo {
+      img {
+        &:hover {
+          &:first-child {
+            opacity: 1;
+          }
+        }
+        &:last-child {
+          display: none;
+        }
+      }
+    }
   }
 
   .nav-links {
