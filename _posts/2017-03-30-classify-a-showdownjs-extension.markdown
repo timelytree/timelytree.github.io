@@ -5,8 +5,75 @@ date:   2017-03-30 14:20:05
 categories: javascript
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Markdown is amazing for hassle-free, simple blogging. Although it's not exactly meant for templating or to output html that can be styled in a more complex manner, that doesn't mean there aren't use-cases that require a richer html output. For this to happen, there needs to be a way to more specifically identify markdown output (perhaps with a `<div>` that contains an identifying class?).
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+Enter [classify](https://github.com/timelytree/showdown-classify), an extension to [ShowdownJS](https://github.com/showdownjs) - a fantastic open-source, javascript-based markdown parser - that gives you the ability to wrap markdown text in a `<div>` with a class while still being able to process markdown inside the `<div>`.
 
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+## How to use
+
+Begin by including classify inside your website's `<head>` tag, after showdown.js
+
+```html
+<script type="text/javascript" src="js/showdown.js"></script>
+<script type="text/javascript" src="js/showdown-classify.js"></script>
+```
+
+## Enabling the extension
+
+Once the extension is included, you can enable it when a new showdown Converter is initialized:
+
+```javascript
+var converter = new showdown.Converter({
+  extensions: ['classify'],
+  // optionA: true,
+  // optionB: false
+});
+```
+
+## Example use case
+
+This extension introduces a new piece of syntax to markdown itself. Using this will allow you to wrap markdown input inside a `<div>` with an identifying class of your choosing. The markdown inside the new tags _will be rendered as well_.
+
+The syntax looks like this:
+
+```
+[tasty--]
+## Header
+1. Toast some bread
+2. Scrape fresh garlic onto bread
+3. Dip into olive oil
+[--tasty]
+```
+
+Example input:
+
+```javascript
+var converter = new showdown.Converter({extensions: ['classify']}),
+    markdownInput = `
+
+      [tasty--]
+      ## Garlic Toast
+      1. Toast some bread
+      2. Scrape fresh garlic onto bread
+      3. Dip into olive oil
+      [--tasty]
+
+    `,
+    html = converter.makeHtml(markdownInput);
+```
+
+This should output:
+
+```html
+<div class="tasty">
+  <h2>Garlic Toast</h2>
+  <ol>
+    <li>Toast some bread</li>
+    <li>Scrape fresh garlic onto bread</li>
+    <li>Dip into olive oil</li>
+  </ol>
+</div>
+```
+
+And that's it! You can now create `<div>`s with classes to wrap markdown input text
+that still gets rendered correctly. Style away!

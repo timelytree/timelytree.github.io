@@ -53,6 +53,34 @@
 }
 
 .post {
+  h2 {
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $gray300;
+    margin: 25px 0 5px 0;
+  }
+  code {
+    font-size: 12px;
+    line-height: 14px;
+    background-color: $gray200;
+    border-radius: 2px;
+    padding: 1px 4px;
+  }
+  pre {
+    background: $gray100;
+    padding: 10px;
+    border-radius: 3px;
+    code {
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+  a {
+    color: $blue800;
+  }
   .post-title {
     margin-bottom: 10px;
   }
@@ -117,8 +145,10 @@
   bottom: 148px;
   opacity: 0;
   transform: rotateZ(-90deg);
-  text-transform: uppercase;
   transform-origin: bottom left;
+  font-size: 20px;
+  line-height: 22px;
+  text-transform: uppercase;
   transition: 150ms;
   &.active {
     opacity: 1;
