@@ -52,6 +52,19 @@
       @include transform(none);
     }
   }
+
+  .post {
+    .post-title {
+      margin-bottom: 5px;
+    }
+    .post-date {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      transform: none;
+      margin-bottom: 25px;
+    }
+  }
 }
 
 
