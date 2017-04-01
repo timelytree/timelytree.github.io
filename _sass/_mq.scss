@@ -80,9 +80,17 @@
       position: relative;
       left: auto;
       bottom: auto;
-      transform: none;
+      @include transform(none);
       margin-bottom: 25px;
     }
+  }
+
+  #demoPAGE {
+     #menu {
+       ul {
+         bottom: 50px;
+       }
+     }
   }
 
   .demoHEADER {
