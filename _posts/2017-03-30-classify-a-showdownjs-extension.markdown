@@ -3,6 +3,7 @@ layout: post
 title:  "classify - A ShowdownJS Extension"
 date:   2017-03-30 14:20:05
 categories: javascript
+demoUrl: /demo/classify
 ---
 
 Markdown is amazing for hassle-free, simple blogging. Although it's not exactly meant for templating or to output html that can be styled in a more complex manner, that doesn't mean there aren't use-cases that require a richer html output. For this to happen, there needs to be a way to more specifically identify markdown output (perhaps with a `<div>` that contains an identifying class?).
@@ -73,6 +74,29 @@ This should output:
     <li>Dip into olive oil</li>
   </ol>
 </div>
+```
+
+## Multiple and Hyphened Classes
+To make things even more fun, you can add multiple or hyphened classes in your syntax.
+
+Input as such:
+
+```
+[red green--]
+[--red green]
+
+OR
+
+[blue teal-white--]
+[--blue teal-white]
+```
+
+Will render as:
+
+```html
+<div class="red green"></div>
+<p>OR</p>
+<div class="blue teal-white"></div>
 ```
 
 And that's it! You can now create `<div>`s with classes to wrap markdown input text

@@ -84,6 +84,29 @@
       margin-bottom: 25px;
     }
   }
+
+  .demoHEADER {
+    padding-right: 55px;
+    #demo-title {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    #originalPostB {
+      padding: 3px 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .demoHEADER {
+    @include flex-column;
+    @include flex-top;
+    @include flex-center;
+    #demo-title {
+      margin-right: 0;
+      margin-bottom: 3px;
+    }
+  }
 }
 
 

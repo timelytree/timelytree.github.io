@@ -1,0 +1,141 @@
+---
+layout: demo
+permalink: /demo/classify
+title: classify
+originalPost: /classify-a-showdownjs-extension
+---
+
+<style>
+  body { overflow: hidden; }
+  #demoPAGE { height: 100%; }
+  .demo-content {
+    width: 100%;
+    height: 100%;
+  }
+  textarea, #markdownPREVIEW {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 50%;
+    height: calc(100% - 50px);
+    padding: 25px;
+    overflow-y: scroll;
+  }
+  textarea {
+    border-right: 2px solid #E0E0E0;
+    background: #FAFAFA;
+  }
+  #markdownPREVIEW {
+    left: 50%;
+  }
+  .red li {
+    color: red;
+  }
+  .blue li {
+    color: blue;
+  }
+</style>
+
+<!-- showdownJS should be loaded first -->
+<script type="text/javascript" src="/js/showdown.min.js"></script>
+<!-- load showdown extension and process markdown -->
+<script>
+// This function will register the extension with showdown
+(function (extension) {
+  'use strict';
+  // UML - Universal Module Loader
+  // This enables the extension to be loaded in different environments
+  if (typeof showdown !== 'undefined') {
+    // global (browser or nodejs global)
+    extension(showdown);
+  } else if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(['showdown'], extension);
+  } else if (typeof exports === 'object') {
+    // Node, CommonJS-like
+    module.exports = extension(require('showdown'));
+  } else {
+    // showdown was not found so we throw
+    throw Error('Could not find showdown library');
+  }
+}(function (showdown) {
+  'use strict';
+  var converter = new showdown.Converter({
+    disableForced4SpacesIndentedSublists: true
+  });
+  // The following method will register the extension with showdown
+  showdown.extension('classify', function () {
+    var x = 0;
+    var ext = {
+      type: 'lang',
+      filter: function(text, converter, options) {
+        var classNAMES = text.match(/\[(.*)--]/g),
+            newText = text;
+        if ((x < 3) && (classNAMES != null)) {
+          ++x;
+          for (var i = 0; i < classNAMES.length; i++) {
+            var classNAME = classNAMES[i].match(/\[(.*)--]/)[1];
+            if (classNAME != '') {
+              var regex = new RegExp("\\["+classNAME+"--]([\\s\\S]*)\\[--"+classNAME+"]"),
+                  textSPLIT = newText.match(regex);
+              if (textSPLIT != null) {
+                var textSNIPPET = textSPLIT[1],
+                    html = converter.makeHtml(textSNIPPET);
+                newText = newText.replace(regex, '<div class="'+classNAME+'">'+html+'</div>');
+              }
+            }
+          }
+        }
+        x = 0;
+        return newText;
+      }
+    };
+    return [ext];
+  });
+}));
+
+// This function renders the markdown in the textarea
+function processMarkdown() {
+  var inputFIELD = document.getElementById('markdownINPUT'),
+      outputDIV = document.getElementById('markdownPREVIEW');
+  // Initialize the showdown converter with the 'classify' extension
+  var converter = new showdown.Converter({
+    extensions: ['classify'],
+    disableForced4SpacesIndentedSublists: true
+  });
+  // Process markdown input
+  var processedInput = converter.makeHtml(inputFIELD.value);
+  // Insert html output onto page
+  outputDIV.innerHTML = processedInput;
+  // Insert html output onto page as-you-type
+  inputFIELD.oninput = function() { outputDIV.innerHTML = converter.makeHtml(inputFIELD.value); }
+}
+
+// Initialize functions when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+  processMarkdown();
+});
+</script>
+
+<textarea id="markdownINPUT">
+##### Class Output
+Inspect the output in the preview window on the right to see the generated `<div class="example"></div>`
+
+**Still don't believe it? Type here to try it yourself!**
+
+[red--]
+###### Red list items
+1. Toast some bread
+2. Scrape fresh garlic onto bread
+3. Dip into olive oil
+[--red]
+
+[blue--]
+###### Blue list items
+1. Toast some bread
+2. Scrape fresh garlic onto bread
+3. Dip into olive oil
+[--blue]
+</textarea>
+
+<div id="markdownPREVIEW"></div>

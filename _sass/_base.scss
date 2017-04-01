@@ -24,7 +24,7 @@ body {
 
 /////////////////////////////////////////////////////////////////////////// Text
 //------------------------------------------------------------------------------
-p, h1, h2, h3, h4, h5, h6, ul, li, div, a, section {
+p, h1, h2, h3, h4, h5, h6, ul, li, div, a, section, header {
   margin: 0;
   padding: 0;
   font-family: $font;
@@ -51,8 +51,6 @@ p {
   }
 }
 
-li { list-style: none; }
-
 a {
   display: inline-block;
   cursor: pointer;
@@ -64,7 +62,22 @@ a {
   }
 }
 
-input, textarea { outline: none; }
+input, textarea {
+  outline: none;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+textarea { resize: none; }
+
+code {
+  font-size: 12px;
+  line-height: 14px;
+  background-color: $gray200;
+  border-radius: 2px;
+  padding: 1px 4px;
+}
 
 ///////////////////////////////////////////////////////////////// Flex structure
 //------------------------------------------------------------------------------
@@ -93,6 +106,36 @@ input, textarea { outline: none; }
   margin: 0 auto;
   padding-top: 250px;
   margin-bottom: 175px;
+}
+
+.content {
+  display: inline-block;
+  width: 100%;
+}
+
+.demo-content {
+  padding-top: 50px;
+  position: relative;
+}
+
+.button {
+  @include inline-flex-r;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: $gray200;
+  color: black;
+  &:hover {
+    text-decoration: none;
+    background: $gray300;
+  }
+  img {
+    width: 10px;
+    height: 10px;
+    margin-left: 8px;
+  }
 }
 
 #menuB {
@@ -158,6 +201,7 @@ input, textarea { outline: none; }
     left: calc(50% - 415px/2);
     width: 415px;
     opacity: 0;
+    list-style: none;
     transition: 150ms;
     &.active {
       transition: 150ms;
@@ -187,6 +231,21 @@ input, textarea { outline: none; }
     }
   }
 }
+
+#demoPAGE {
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 0;
+  margin: 0;
+  #menu {
+    height: 100%;
+    ul {
+      bottom: 200px;
+    }
+  }
+}
+
 
 
 //

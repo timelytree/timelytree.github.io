@@ -1,0 +1,25 @@
+<header class="demoHEADER">
+  <h1 id="demo-title">Demo: {{ page.title }}</h1>
+  <a id="originalPostB" class="button" href="{{ page.originalPost }}">
+    <img src="{{ site.baseurl }}/images/icons/chevron_left_black.svg" />
+    back to tutorial
+  </a>
+  <div id="menuB">
+    <img src="{{ site.baseurl }}/images/icons/menu_icon_black.svg" />
+    <img src="{{ site.baseurl }}/images/icons/close_icon_black.svg" />
+  </div>
+  <div id="menu">
+    <h1 class="menu-title">Menu</h1>
+    <ul>
+      {% for page in site.pages %}
+        {% if page.header %}
+          <li data-nav="{{ page.header | downcase }}"><a class="navB" href="{{ page.url | prepend: site.baseurl }}">{{ page.header }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% for category in site.categories %}
+        <li data-nav="{{ category[0] | downcase }}"><a class="navB" href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] }}</a></li>
+      {% endfor %}
+      <li class="socialB"><a href="https://github.com/timelytree" target="_blank"><img src="{{ site.baseurl }}/images/icons/github_icon_black.svg" /></a></li>
+    </ul>
+  </div>
+</header>

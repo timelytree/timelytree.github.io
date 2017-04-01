@@ -5,7 +5,7 @@ description: Collection of musings from Nauras Jabari's brain thingy
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "www.timelytree.github.io" # the base hostname & protocol for your site
 github_username:  timelytree
-include: ["_pages", "_categories"]
+include: ["_pages", "_categories", "_demos"]
 permalink: /:title
 
 collections:
