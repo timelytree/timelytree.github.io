@@ -99,8 +99,10 @@
       font-size: 14px;
       line-height: 16px;
     }
-    #originalPostB {
-      padding: 3px 5px;
+    .buttonBar {
+      .button {
+        padding: 3px 5px;
+      }
     }
   }
 }

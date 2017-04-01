@@ -79,6 +79,17 @@ code {
   padding: 1px 4px;
 }
 
+pre {
+  background: $gray100;
+  padding: 10px;
+  border-radius: 3px;
+  code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
 ///////////////////////////////////////////////////////////////// Flex structure
 //------------------------------------------------------------------------------
 .flex-c { @include display-flex; @include flex-column; @include flex-no-wrap; @include flex-center; @include flex-middle; }
@@ -118,6 +129,11 @@ code {
   position: relative;
 }
 
+.buttonBar {
+  @include display-flex;
+  @include flex-middle;
+}
+
 .button {
   @include inline-flex-r;
   font-size: 12px;
@@ -127,14 +143,24 @@ code {
   border-radius: 3px;
   background: $gray200;
   color: black;
+  margin-right: 5px;
   &:hover {
     text-decoration: none;
     background: $gray300;
   }
+  &.imgLeft {
+    img {
+      margin-right: 8px;
+    }
+  }
+  &.imgRight {
+    img {
+      margin-left: 8px;
+    }
+  }
   img {
     width: 10px;
     height: 10px;
-    margin-left: 8px;
   }
 }
 

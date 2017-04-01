@@ -1,9 +1,15 @@
 <header class="demoHEADER">
   <h1 id="demo-title">Demo: {{ page.title }}</h1>
-  <a id="originalPostB" class="button" href="{{ page.originalPost }}">
-    <img src="{{ site.baseurl }}/images/icons/chevron_left_black.svg" />
-    back to tutorial
-  </a>
+  <div class="buttonBar">
+    <a id="originalPostB" class="button imgLeft" href="{{ page.originalPost }}">
+      <img src="{{ site.baseurl }}/images/icons/chevron_left_black.svg" />
+      back to tutorial
+    </a>
+    <a class="button imgLeft" href="https://github.com/timelytree/{{ page.github }}" target="_blank">
+      <img src="{{ site.baseurl }}/images/icons/github_icon_black.svg" />
+      github
+    </a>
+  </div>
   <div id="menuB">
     <img src="{{ site.baseurl }}/images/icons/menu_icon_black.svg" />
     <img src="{{ site.baseurl }}/images/icons/close_icon_black.svg" />

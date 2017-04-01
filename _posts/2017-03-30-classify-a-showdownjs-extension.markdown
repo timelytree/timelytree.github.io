@@ -4,6 +4,7 @@ title:  "classify - A ShowdownJS Extension"
 date:   2017-03-30 14:20:05
 categories: javascript
 demoUrl: /demo/classify
+github: showdown-classify
 ---
 
 Markdown is amazing for hassle-free, simple blogging. Although it's not exactly meant for templating or to output html that can be styled in a more complex manner, that doesn't mean there aren't use-cases that require a richer html output. For this to happen, there needs to be a way to more specifically identify markdown output (perhaps with a `<div>` that contains an identifying class?).
