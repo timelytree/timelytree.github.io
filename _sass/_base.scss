@@ -132,10 +132,12 @@ pre {
 .buttonBar {
   @include display-flex;
   @include flex-middle;
+  @include flex-wrap;
 }
 
 .button {
   @include inline-flex-r;
+  @include flex-middle;
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;

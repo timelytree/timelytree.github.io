@@ -46,46 +46,12 @@
   }
 }
 
-.post {
-  h2 {
-    font-size: 16px;
-    line-height: 18px;
-    text-transform: uppercase;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $gray300;
-    margin: 25px 0 5px 0;
-  }
-  a {
-    color: $blue800;
-  }
-  ul {
-    padding-left: 35px;
-  }
-  .button {
-    color: black;
-    margin-bottom: 15px;
-  }
-  .post-title {
-    margin-bottom: 10px;
-  }
-  .post-date {
-    position: fixed;
-    left: calc(50% - 230px);
-    bottom: 178px;
-    @include transform(rotateZ(-90deg));
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: uppercase;
-    -webkit-transform-origin: bottom left;
-    transform-origin: bottom left;
-  }
-}
-
 .post-list {
   list-style: none;
   .post-link {
     display: inline-block;
     margin-bottom: 20px;
+    width: 100%;
     &:last-child {
       margin-bottom: 0;
     }
@@ -127,6 +93,74 @@
         }
       }
     }
+  }
+}
+
+.post {
+  position: relative;
+  h2 {
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $gray300;
+    margin: 25px 0 5px 0;
+  }
+  a {
+    color: $blue800;
+  }
+  ul {
+    padding-left: 35px;
+  }
+  .button {
+    color: black;
+    margin-bottom: 5px;
+  }
+  .post-title {
+    margin-bottom: 10px;
+  }
+  .post-date {
+    position: fixed;
+    left: calc(50% - 230px);
+    bottom: 178px;
+    @include transform(rotateZ(-90deg));
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+  }
+  .post-content {
+    img {
+      width: 100%;
+      margin: 25px 0;
+    }
+  }
+}
+
+.statusB {
+  padding-left: 20px;
+  position: relative;
+  text-transform: uppercase;
+  &:hover {
+    background: $gray200;
+  }
+  &.live, &.inactive {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+  }
+  &.live:after {
+    background: $green500;
+  }
+  &.inactive:after {
+    background: $red500;
   }
 }
 
