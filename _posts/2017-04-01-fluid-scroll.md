@@ -3,7 +3,7 @@ layout: post
 title:  "Fluid Scroll"
 date:   2017-04-01 11:20:00
 categories: javascript
-demoURL: /demo/fluid-scroll
+demoURL: /demo/fluid-scroll-demo
 github: FluidScroll
 ---
 

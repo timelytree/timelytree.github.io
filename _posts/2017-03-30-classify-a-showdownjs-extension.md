@@ -3,7 +3,7 @@ layout: post
 title:  "classify - A ShowdownJS Extension"
 date:   2017-03-30 14:20:05
 categories: javascript
-demoURL: /demo/classify
+demoURL: /demo/classify-demo
 github: showdown-classify
 ---
 

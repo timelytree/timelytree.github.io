@@ -90,6 +90,10 @@ pre {
   }
 }
 
+div {
+  -webkit-overflow-scrolling: touch;
+}
+
 ///////////////////////////////////////////////////////////////// Flex structure
 //------------------------------------------------------------------------------
 .flex-c { @include display-flex; @include flex-column; @include flex-no-wrap; @include flex-center; @include flex-middle; }
