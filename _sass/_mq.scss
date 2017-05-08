@@ -112,9 +112,10 @@
     @include flex-column;
     @include flex-top;
     @include flex-center;
+    height: 75px;
     #demo-title {
       margin-right: 0;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
     }
   }
 }
