@@ -9,7 +9,7 @@ That time when you walked 12 blocks only to realize you have no recollection of 
 
 \--
 
-Amongst other things, this website hosts a collection of musings created by Nauras Jabari's brain thingy. Input: stimulus; output: words, work, projects, and ideas.
+Amongst other things, this website hosts a collection of musings created by Nauras Jabari's brain thingy. Input: stimulus. Output: words, work, projects, and ideas.
 
 \--
 

@@ -12,6 +12,8 @@
   <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl}}" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
 
+
+  {% if page.id == 'homePAGE' %}<script type="text/javascript" src="{{ "/js/parallax.min.js" | prepend: site.baseurl }}"></script>{% endif %}
   <script type="text/javascript" src="{{ "/js/scripts.js" | prepend: site.baseurl }}"></script>
 
   <script>

@@ -1,0 +1,33 @@
+---
+layout: default
+header: Projects
+permalink: /projects
+id: projectsPAGE
+---
+
+<ul class="project-list">
+  {% for post in site.posts %}
+    {% if post.categories[0] == 'projects' %}
+      <li>
+        <h6 class="project-title">{{ post.title }}</h6>
+        <div class="project-info">
+          {% if post.projectURL %}
+            <a href="{{ post.projectURL }}" target="_blank">{{ post.projectURL }}</a>
+          {% endif %}
+          {% if post.status %}
+            <div class="button statusB {% if post.status == 'live' %}live{% elsif post.status == 'dev' %}dev{% else %}offline{% endif %}">
+              {% if post.status == 'live' %}live{% elsif post.status == 'dev' %}in development{% else %}offline{% endif %}
+            </div>
+          {% endif %}
+        </div>
+        <div class="project-tech">
+          <h5>Technologies Used</h5>
+          <p>{{ post.technologies }}</p>
+        </div>
+        <div class="project-description">
+          {{ post.description }}
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

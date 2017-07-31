@@ -1,4 +1,4 @@
-/*///////////////////////////////////////////////////////// Tablet Landscape  */
+/*/////////////////////////////////////////////////// Smartphone Landscape  */
 @media only screen and (max-width: 737px) {
   body {
     width: 100%;
@@ -56,7 +56,7 @@
   }
 
   .content {
-    padding: 0 25px 55px 25px;
+    padding: 0 25px 25px 25px;
   }
 
   .page-title {
@@ -105,6 +105,66 @@
       }
     }
   }
+
+  #photography, #photographyB {
+    display: none;
+  }
+
+  #homePAGE {
+    .content {
+      padding: 0;
+    }
+  }
+
+  .buttons {
+    top: auto;
+    bottom: calc(100% + 15px);
+    left: calc(125px + 15px);
+
+    a, button {
+      font-size: 12px;
+      line-height: 14px;
+      p {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
+  #scene {
+    #profile {
+      width: 125px;
+      height: 125px;
+      bottom: calc(100% + 15px);
+    }
+
+    .layer {
+      &:nth-child(1) section {
+        bottom: 30px;
+        left: 30px;
+      }
+      &:nth-child(2) section {
+        padding: 30px 30px 15px 15px;
+        bottom: 30px;
+        left: 30px;
+      }
+      &:nth-child(3) section {
+        bottom: 15px;
+        left: 15px;
+      }
+    }
+
+    section {
+      width: calc(100% - 45px);
+      height: 125px;
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
 }
 
 @media only screen and (max-width: 415px) {
@@ -116,6 +176,12 @@
     #demo-title {
       margin-right: 0;
       margin-bottom: 5px;
+    }
+  }
+
+  #scene {
+    section {
+      height: 225px;
     }
   }
 }

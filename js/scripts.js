@@ -50,12 +50,50 @@ function menuINT() {
   }
 }
 
+function parallaxINIT() {
+  var scene = E('scene');
+
+  var parallax = new Parallax(scene);
+}
+
+function photographyINT() {
+  var button = E('photographyB'),
+      photoCONTAINER = E('photography'),
+      photos = cE('photo'),
+      wrapper = E('homePAGE'),
+      currIMG = false,
+      interval = false,
+      num = 0;
+
+  photographyB.onclick = function() {
+    addC(wrapper, 'photoACTIVE');
+    interval = window.setInterval(function() {
+      if (currIMG) { remC(currIMG, 'active'); }
+      currIMG = photos[num];
+      addC(currIMG, 'active');
+
+      num++;
+      if (num == photos.length) { num = 0; }
+
+      wrapper.addEventListener('click', function click(event) {
+        clearInterval(interval);
+        remC(wrapper, 'photoACTIVE');
+        wrapper.removeEventListener('click', click, false);
+      }, false);
+
+    }, 200);
+  }
+}
+
 function engage() {
-  menuINT();
   switch (p.Current) {
-    case 'homePAGE': pageTitleANIM(); break;
-    case 'aboutPAGE': pageTitleANIM(); break;
-    case 'categoryPAGE': pageTitleANIM(); break;
+    case 'homePAGE': parallaxINIT(); photographyINT(); break;
+    case 'blogPAGE': menuINT(); pageTitleANIM(); break;
+    case 'categoryPAGE': menuINT(); pageTitleANIM(); break;
+    case 'projectsPAGE': menuINT(); pageTitleANIM(); break;
+    case 'aboutPAGE': menuINT(); pageTitleANIM(); break;
+    case 'demoPAGE': menuINT(); break;
+    case 'postPAGE': menuINT(); break;
   }
 }
 

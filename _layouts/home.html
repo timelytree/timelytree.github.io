@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <!-- /////////////////////////////////////////////////////////// wrapper -->
+    <div class="wrapper" id="homePAGE">
+      <div id="photographyB">
+        <img src="{{ site.baseurl }}/images/logo.png" />
+        <img src="{{ site.baseurl }}/images/logo.gif" />
+      </div>
+      <!-- ///////////////////////////////////////////////////////// content -->
+      <div class="content">
+        {{ content }}
+      </div>
+      {% include photography.html %}
+    </div>
+  </body>
+</html>

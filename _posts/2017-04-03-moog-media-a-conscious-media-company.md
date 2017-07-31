@@ -1,11 +1,13 @@
 ---
 layout: project
-title:  "MOOG Media - A Conscious Media Company"
-date:   2017-04-03 11:20:00
+title: "MOOG Media"
+date: 2017-04-03 00:00
 categories: projects
-projectURL: http://moogmedia.ca/
+projectURL: moogmedia.ca
 github: moog-media
 status: live
+technologies: "JS / Jekyll / HTML / SCSS / Gulp"
+description: "This website was custom-built on top of Jekyll and is used to repesent the work my sister and I are doing in the film world."
 ---
 
 Outside of doing my normal computer programming thing, I actually run a film & media company with my twin sister Narina. It wasn't until I began planning the build of my company website that I realized the importance of lessons in constraint that the web development services industry is able to teach. It is important to take a large wisp of an idea and boil it down to its bare minimum functional and presentable state prior to development. I always like to use Dropbox as an example of this; at DropBox's inception, it was no more than a "put file in cloud, send file, download file" kind of application. Slowly, over the years its functionality grew to what it is now. If it had launched attempting to be all that it is now, it is likely that it would have run out of steam fairly quickly, or launched with a variety of half-baked features.

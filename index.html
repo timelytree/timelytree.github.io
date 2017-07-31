@@ -1,20 +1,38 @@
 ---
-layout: default
-header: All Posts
+layout: home
 id: homePAGE
 ---
 
-<ul class="post-list">
-  {% for post in site.posts %}
-    <li class="post-link">
-      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      <ul class="categories">
-        <li class="category-link">Categories: </li>
-        {% for category in post.categories %}
-          <li class="category-link"><a href="/category/{{ category | prepend: site.baseurl }}">{{ category }}</a></li>
-        {% endfor %}
+<div id="scene">
+  <div class="layer" data-depth="0.30">
+
+    <section>
+      <img id="profile" src="{{ site.baseurl }}/images/profile.jpg" />
+      <ul class="buttons">
+        <li>
+          <a href="/about.html"><img src="{{ site.baseurl }}/images/icons/space_icon_black.svg" /> <p>About</p></a>
+        </li>
+        <li>
+          <a href="/projects.html"><img src="{{ site.baseurl }}/images/icons/code_icon_black.svg" /> <p>Projects</p></a>
+        </li>
+        <li>
+          <a href="/blog.html"><img src="{{ site.baseurl }}/images/icons/leaf_icon_black.svg" /> <p>Blog</p></a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/files/resume.pdf"><img src="{{ site.baseurl }}/images/icons/download_icon_black.svg" /> <p>resume</p></a>
+        </li>
+        <li>
+          <a href="mailto:nauras@moogmedia.ca">nauras@moogmedia.ca</a>
+        </li>
       </ul>
-    </li>
-  {% endfor %}
-</ul>
+    </section>
+  </div>
+  <div class="layer" data-depth="0.20">
+    <section>
+      My name is Nauras Jabari and I am a freelance web developer specializing in <span>Javascript</span> and <span>Prototype</span> development as well as <span>Systems Integration</span>.
+    </section>
+  </div>
+  <div class="layer" data-depth="0.25">
+    <section></section>
+  </div>
+</div>

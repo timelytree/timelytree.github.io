@@ -19,8 +19,8 @@ layout: default
         </a>
       {% endif %}
       {% if page.status %}
-        <div class="button statusB {% if page.status == 'live' %}live{% else %}inactive{% endif %}">
-          {% if page.status == 'live' %}live{% else %}inactive{% endif %}
+        <div class="button statusB {% if page.status == 'live' %}live{% elsif page.status == 'dev' %}dev{% else %}offline{% endif %}">
+          {% if page.status == 'live' %}live{% elsif page.status == 'dev' %}in development{% else %}offline{% endif %}
         </div>
       {% endif %}
     </div>
