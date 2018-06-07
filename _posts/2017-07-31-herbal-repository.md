@@ -3,7 +3,7 @@ layout: project
 title: "Herbal Repository"
 date: 2017-07-31 00:01
 categories: projects
-projectURL: herbalrepository.ca
+projectURL: https://www.herbalrepository.org
 github: herbalrepo-org
 status: live
 technologies: "Ruby on Rails / JS / HTML / SCSS / Gulp / MySQL / Linux / Ps / Ai"

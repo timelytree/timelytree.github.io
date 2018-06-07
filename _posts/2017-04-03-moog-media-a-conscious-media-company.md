@@ -3,7 +3,7 @@ layout: project
 title: "MOOG Media"
 date: 2017-04-03 00:00
 categories: projects
-projectURL: moogmedia.ca
+projectURL: http://moogmedia.ca
 github: moog-media
 status: live
 technologies: "JS / Jekyll / HTML / SCSS / Gulp"
